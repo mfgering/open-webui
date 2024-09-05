@@ -1,0 +1,22 @@
+services:
+  ollama:
+    volumes:
+      - ${OLLAMA_DATA_DIR}:/root/.ollama
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+
+  open-webui:
+    image: docker.io/mgering/open-webui:${WEBUI_DOCKER_TAG-latest}
+    #image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
+    container_name: open-webui
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+    volumes:
+      - ${OLLAMA_DATA_DIR}:/root/.ollama
+      - ${OPEN_WEBUI_DATA}:/app/backend/data
+      - ${OPEN_WEBUI_DOCS}:/data/docs
+    ports:
+      - ${OPEN_WEBUI_PORT-3000}:8080
+      - 5679:5678
+
