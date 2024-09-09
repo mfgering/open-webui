@@ -5,6 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python Debugger: run_code",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/data/tools/run_code.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--use-sample-code",
+                "--debug"
+            ]
+        },
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "${command:pickArgs}"
+            ]
+        },
+        {
             "name": "Python Debugger: Remote Attach",
             "type": "debugpy",
             "request": "attach",
@@ -25,6 +46,28 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: FastAPI",
+            "type": "debugpy",
+            "cwd": "${workspaceFolder}/backend",
+            "request": "launch",
+            "module": "uvicorn",
+            "env": {
+                "MODELS_LOG_LEVEL": "DEBUG",
+                "RAG_LOG_LEVEL": "DEBUG"
+            },
+            "args": [
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "3001",
+                "main:app",
+                "--forwarded-allow-ips",
+                "'*'",
+                "--reload"
+            ],
+            "jinja": true
         }
     ]
 }
