@@ -1149,7 +1149,8 @@ def get_loader(filename: str, file_content_type: str, file_path: str):
         elif file_ext == "rst":
             loader = UnstructuredRSTLoader(file_path, mode="elements")
         elif file_ext == "xml":
-            loader = UnstructuredXMLLoader(file_path)
+            #loader = UnstructuredXMLLoader(file_path)
+            loader = UnstructuredXMLLoader(file_path, mode="elements")
         elif file_ext in ["htm", "html"]:
             loader = BSHTMLLoader(file_path, open_encoding="unicode_escape")
         elif file_ext == "md":
