@@ -1,6 +1,6 @@
 # Rules and Regulations
 
-**1. ANIMALS -- AS STATED IN THE RESTRICTIVE COVENANTS** - Pet owners
+**1. ANIMALS** -- Pet owners
 should always use the freight elevator to take pets to and from their
 residence. Under no circumstances are pets allowed on the passenger
 elevator unless they are being carried. No Owner shall have more than
@@ -61,8 +61,8 @@ installed on any balcony.
 common area. Please do not litter or restrict enjoyment of the common
 areas.
 
-**8. DAMAGES CAUSED BY OWNER, HIS AGENTS, INVITEES OR FAMILY MEMBERS**
--- Any damage caused by negligence or intentional misconduct from the
+**8. DAMAGES CAUSED BY OWNER, HIS AGENTS, INVITEES OR FAMILY MEMBERS** -- Any 
+damage caused by negligence or intentional misconduct from the
 named above will be the responsibility of that Owner. The association
 shall be responsible for the maintenance and repair of all Common
 Elements, except for the Limited Common Elements, exclusive to a unit
@@ -78,11 +78,11 @@ type and quantity to those which are appropriate for use in or about the
 home and must be in strict accordance with safety requirements and
 applicable law.
 
-1**0. HOT WATER HEATER** -- Each owner is required to show documented
+**10. HOT WATER HEATER** -- Each owner is required to show documented
 proof that their individual hot water heaters have been replaced within
 or at the suggested 10-year lifespan.
 
-**11. HVAC** \-- Each HVAC system has one air handler and one rooftop
+**11. HVAC** -- Each HVAC system has one air handler and one rooftop
 compressor. The air handler is located above the ceiling through an
 access panel in the washer/dryer or closet area. The rooftop compressor
 is located on the roof on specially designed platforms. Most units have
@@ -140,7 +140,7 @@ added to the owner's policy. The owner is responsible for liability
 claims that arise inside the unit, their own personal belongings and for
 displacement.
 
-**14. KEYS** - Each Owner is required to make one (1) key available to
+**14. KEYS** -- Each Owner is required to make one (1) key available to
 the Association for the unit\'s entry door. No Owner is permitted to
 install new locks or rekey a Unit unless authorized by the Association
 (which authorization shall not be unreasonably withheld provided the
@@ -225,7 +225,7 @@ period - \$100.00. Fines imposed for parking violations shall be
 considered special assessments and shall be due and payable upon receipt
 of the parking violation.
 
-**20. PET WASTE** \-- The only area designated for walking pets is the
+**20. PET WASTE** -- The only area designated for walking pets is the
 exterior of the building. Please take pets in and out through either the
 stairwell or the freight elevator only as pets are not allowed in the
 passenger elevator at any time. All excrement from pets should be
@@ -246,7 +246,7 @@ accepted. You do not have to separate the items; Grime Control Cleaning
 Service will sort through the items once the recyclables have been
 delivered to their facility. Thank you for choosing to recycle!
 
-**22. SECURITY SYSTEMS** - The building has a security system for the
+**22. SECURITY SYSTEMS** -- The building has a security system for the
 entry lobby and vehicle entry gate that are owner specific which records
 door and time/date of entry information. In addition to unit keys,
 owners will be supplied two (2) entry fobs to operate the first-floor
@@ -269,7 +269,7 @@ Common Elements unless approved in advance by the Association.
 of The Dawson on Morgan in order to ensure the safety of residents and
 guests.
 
-**25. TRASH** \-- Trash removal is provided by Waste Industries. For all
+**25. TRASH** -- Trash removal is provided by Waste Industries. For all
 household trash, there is a trash chute located near the freight
 elevator on each floor that dumps into a trash compactor on the first
 floor. Only bagged household trash goes in the trash chute. DO NOT put
@@ -288,7 +288,7 @@ on each floor are closed completely after each use.
 skateboards, garbage cans and recycling bins should not be left in the
 Common or parking areas.
 
-**28. SATELLITE DISH SERVICE** \-- In no event shall any exterior
+**28. SATELLITE DISH SERVICE** -- In no event shall any exterior
 television antenna or satellite dish be mounted or placed on the
 exterior surface or patio balcony of any unit. A rooftop exterior
 television antenna and satellite dish area has been established for
@@ -323,7 +323,7 @@ caused by installation or use or roof leaks.
 
 **29. STORM DOORS** -- No storm doors are allowed.
 
-**30. WINDOW/DOOR SCREENS** - Per the \"Maintenance Responsibility
+**30. WINDOW/DOOR SCREENS** -- Per the \"Maintenance Responsibility
 Chart,\" homeowners are responsible for maintaining, removing, or
 replacing window and sliding door screens. This includes facilitating
 Homeowners Association activities like window and building washing.
