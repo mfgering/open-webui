@@ -5,6 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "name": "Launch add-on",
+            "url": "http://dt1.dawson:3001",
+            "webRoot": "${workspaceFolder}/src",
+            "pathMappings": [
+                {
+                    "url": "*",
+                    "path": "${workspaceFolder}/src"
+                }
+            ],
+            "addonPath": "${workspaceFolder}"
+        },
+        {
             "name": "Python Debugger: run_code",
             "type": "debugpy",
             "request": "launch",
@@ -54,8 +69,9 @@
             "request": "launch",
             "module": "uvicorn",
             "env": {
+                "GLOBAL_LOG_LEVEL": "WARNING",
                 //"MODELS_LOG_LEVEL": "DEBUG"
-                //"RAG_LOG_LEVEL": "DEBUG"
+                "RAG_LOG_LEVEL": "DEBUG"
             },
             "args": [
                 "--host",
@@ -67,6 +83,7 @@
                 "'*'",
                 "--reload"
             ],
+            "justMyCode": false,
             "jinja": true
         }
     ]
