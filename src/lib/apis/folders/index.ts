@@ -1,16 +1,139 @@
 import { WEBUI_API_BASE_URL } from '$lib/constants';
 
-export const createNewDoc = async (
+export const createNewFolder = async (token: string, name: string) => {
+	let error = null;
+
+	const res = await fetch(`${WEBUI_API_BASE_URL}/folders/`, {
+		method: 'POST',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+			authorization: `Bearer ${token}`
+		},
+		body: JSON.stringify({
+			name: name
+		})
+	})
+		.then(async (res) => {
+			if (!res.ok) throw await res.json();
+			return res.json();
+		})
+		.catch((err) => {
+			error = err.detail;
+			return null;
+		});
+
+	if (error) {
+		throw error;
+	}
+
+	return res;
+};
+
+export const getFolders = async (token: string = '') => {
+	let error = null;
+
+	const res = await fetch(`${WEBUI_API_BASE_URL}/folders/`, {
+		method: 'GET',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+			authorization: `Bearer ${token}`
+		}
+	})
+		.then(async (res) => {
+			if (!res.ok) throw await res.json();
+			return res.json();
+		})
+		.then((json) => {
+			return json;
+		})
+		.catch((err) => {
+			error = err.detail;
+			console.log(err);
+			return null;
+		});
+
+	if (error) {
+		throw error;
+	}
+
+	return res;
+};
+
+export const getFolderById = async (token: string, id: string) => {
+	let error = null;
+
+	const res = await fetch(`${WEBUI_API_BASE_URL}/folders/${id}`, {
+		method: 'GET',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+			authorization: `Bearer ${token}`
+		}
+	})
+		.then(async (res) => {
+			if (!res.ok) throw await res.json();
+			return res.json();
+		})
+		.then((json) => {
+			return json;
+		})
+		.catch((err) => {
+			error = err.detail;
+			console.log(err);
+			return null;
+		});
+
+	if (error) {
+		throw error;
+	}
+
+	return res;
+};
+
+export const updateFolderNameById = async (token: string, id: string, name: string) => {
+	let error = null;
+
+	const res = await fetch(`${WEBUI_API_BASE_URL}/folders/${id}/update`, {
+		method: 'POST',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+			authorization: `Bearer ${token}`
+		},
+		body: JSON.stringify({
+			name: name
+		})
+	})
+		.then(async (res) => {
+			if (!res.ok) throw await res.json();
+			return res.json();
+		})
+		.then((json) => {
+			return json;
+		})
+		.catch((err) => {
+			error = err.detail;
+			console.log(err);
+			return null;
+		});
+
+	if (error) {
+		throw error;
+	}
+
+	return res;
+};
+
+export const updateFolderIsExpandedById = async (
 	token: string,
-	collection_name: string,
-	filename: string,
-	name: string,
-	title: string,
-	content: object | null = null
+	id: string,
+	isExpanded: boolean
 ) => {
 	let error = null;
 
-	const res = await fetch(`${WEBUI_API_BASE_URL}/documents/create`, {
+	const res = await fetch(`${WEBUI_API_BASE_URL}/folders/${id}/update/expanded`, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
@@ -18,40 +141,8 @@ export const createNewDoc = async (
 			authorization: `Bearer ${token}`
 		},
 		body: JSON.stringify({
-			collection_name: collection_name,
-			filename: filename,
-			name: name,
-			title: title,
-			...(content ? { content: JSON.stringify(content) } : {})
+			is_expanded: isExpanded
 		})
-	})
-		.then(async (res) => {
-			if (!res.ok) throw await res.json();
-			return res.json();
-		})
-		.catch((err) => {
-			error = err.detail;
-			console.log(err);
-			return null;
-		});
-
-	if (error) {
-		throw error;
-	}
-
-	return res;
-};
-
-export const getDocs = async (token: string = '') => {
-	let error = null;
-
-	const res = await fetch(`${WEBUI_API_BASE_URL}/documents/`, {
-		method: 'GET',
-		headers: {
-			Accept: 'application/json',
-			'Content-Type': 'application/json',
-			authorization: `Bearer ${token}`
-		}
 	})
 		.then(async (res) => {
 			if (!res.ok) throw await res.json();
@@ -73,53 +164,10 @@ export const getDocs = async (token: string = '') => {
 	return res;
 };
 
-export const getDocByName = async (token: string, name: string) => {
+export const updateFolderParentIdById = async (token: string, id: string, parentId?: string) => {
 	let error = null;
 
-	const searchParams = new URLSearchParams();
-	searchParams.append('name', name);
-
-	const res = await fetch(`${WEBUI_API_BASE_URL}/documents/docs?${searchParams.toString()}`, {
-		method: 'GET',
-		headers: {
-			Accept: 'application/json',
-			'Content-Type': 'application/json',
-			authorization: `Bearer ${token}`
-		}
-	})
-		.then(async (res) => {
-			if (!res.ok) throw await res.json();
-			return res.json();
-		})
-		.then((json) => {
-			return json;
-		})
-		.catch((err) => {
-			error = err.detail;
-
-			console.log(err);
-			return null;
-		});
-
-	if (error) {
-		throw error;
-	}
-
-	return res;
-};
-
-type DocUpdateForm = {
-	name: string;
-	title: string;
-};
-
-export const updateDocByName = async (token: string, name: string, form: DocUpdateForm) => {
-	let error = null;
-
-	const searchParams = new URLSearchParams();
-	searchParams.append('name', name);
-
-	const res = await fetch(`${WEBUI_API_BASE_URL}/documents/doc/update?${searchParams.toString()}`, {
+	const res = await fetch(`${WEBUI_API_BASE_URL}/folders/${id}/update/parent`, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
@@ -127,8 +175,7 @@ export const updateDocByName = async (token: string, name: string, form: DocUpda
 			authorization: `Bearer ${token}`
 		},
 		body: JSON.stringify({
-			name: form.name,
-			title: form.title
+			parent_id: parentId
 		})
 	})
 		.then(async (res) => {
@@ -140,7 +187,6 @@ export const updateDocByName = async (token: string, name: string, form: DocUpda
 		})
 		.catch((err) => {
 			error = err.detail;
-
 			console.log(err);
 			return null;
 		});
@@ -152,18 +198,15 @@ export const updateDocByName = async (token: string, name: string, form: DocUpda
 	return res;
 };
 
-type TagDocForm = {
-	name: string;
-	tags: string[];
+type FolderItems = {
+	chat_ids: string[];
+	file_ids: string[];
 };
 
-export const tagDocByName = async (token: string, name: string, form: TagDocForm) => {
+export const updateFolderItemsById = async (token: string, id: string, items: FolderItems) => {
 	let error = null;
 
-	const searchParams = new URLSearchParams();
-	searchParams.append('name', name);
-
-	const res = await fetch(`${WEBUI_API_BASE_URL}/documents/doc/tags?${searchParams.toString()}`, {
+	const res = await fetch(`${WEBUI_API_BASE_URL}/folders/${id}/update/items`, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
@@ -171,8 +214,7 @@ export const tagDocByName = async (token: string, name: string, form: TagDocForm
 			authorization: `Bearer ${token}`
 		},
 		body: JSON.stringify({
-			name: form.name,
-			tags: form.tags
+			items: items
 		})
 	})
 		.then(async (res) => {
@@ -184,7 +226,6 @@ export const tagDocByName = async (token: string, name: string, form: TagDocForm
 		})
 		.catch((err) => {
 			error = err.detail;
-
 			console.log(err);
 			return null;
 		});
@@ -196,13 +237,10 @@ export const tagDocByName = async (token: string, name: string, form: TagDocForm
 	return res;
 };
 
-export const deleteDocByName = async (token: string, name: string) => {
+export const deleteFolderById = async (token: string, id: string) => {
 	let error = null;
 
-	const searchParams = new URLSearchParams();
-	searchParams.append('name', name);
-
-	const res = await fetch(`${WEBUI_API_BASE_URL}/documents/doc/delete?${searchParams.toString()}`, {
+	const res = await fetch(`${WEBUI_API_BASE_URL}/folders/${id}`, {
 		method: 'DELETE',
 		headers: {
 			Accept: 'application/json',
@@ -219,7 +257,6 @@ export const deleteDocByName = async (token: string, name: string) => {
 		})
 		.catch((err) => {
 			error = err.detail;
-
 			console.log(err);
 			return null;
 		});
