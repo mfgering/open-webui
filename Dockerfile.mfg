@@ -1,0 +1,2 @@
+FROM ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
+RUN pip3 install uv debugpy 
