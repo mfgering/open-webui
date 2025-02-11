@@ -1,3 +1,4 @@
+ARG WEBUI_DOCKER_TAG
 FROM ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
 COPY backend/mfg_start.sh /app/backend/mfg_start.sh
 
