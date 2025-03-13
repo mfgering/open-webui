@@ -12,6 +12,7 @@ services:
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+      - PYDEVD_DISABLE_FILE_VALIDATION=1
       #- GLOBAL_LOG_LEVEL=DEBUG
     volumes:
       - ${OLLAMA_DATA_DIR}:/root/.ollama
