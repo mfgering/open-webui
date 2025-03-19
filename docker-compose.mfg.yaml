@@ -1,5 +1,7 @@
 services:
   ollama:
+#    security_opt:
+#      - seccomp:unconfined
     volumes:
       - ${OLLAMA_DATA_DIR}:/root/.ollama
     environment:
