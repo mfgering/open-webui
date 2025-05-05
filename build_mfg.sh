@@ -14,10 +14,12 @@ login_to_docker() {
     echo "Logged in"
   fi
 }
-
+echo "Logging into Docker..."
 # Call the login function
 login_to_docker
-export WEBUI_DOCKER_TAG=main
+echo "Pulling open-webui image..."
+#export WEBUI_DOCKER_TAG=main
+export WEBUI_DOCKER_TAG=latest
 docker pull ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG}
 # Build mgering/open-webui:main from Dockerfile.mfg
 docker build --build-arg WEBUI_DOCKER_TAG=${WEBUI_DOCKER_TAG} -t mgering/open-webui:main -f Dockerfile.mfg .
