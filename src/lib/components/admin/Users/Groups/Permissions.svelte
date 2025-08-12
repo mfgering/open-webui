@@ -21,9 +21,14 @@
 		},
 		chat: {
 			controls: true,
+			valves: true,
+			system_prompt: true,
+			params: true,
 			file_upload: true,
 			delete: true,
 			edit: true,
+			share: true,
+			export: true,
 			stt: true,
 			tts: true,
 			call: true,
@@ -35,7 +40,8 @@
 			direct_tool_servers: false,
 			web_search: true,
 			image_generation: true,
-			code_interpreter: true
+			code_interpreter: true,
+			notes: true
 		}
 	};
 
@@ -260,6 +266,32 @@
 			<Switch bind:state={permissions.chat.controls} />
 		</div>
 
+		{#if permissions.chat.controls}
+			<div class="  flex w-full justify-between my-2 pr-2">
+				<div class=" self-center text-xs font-medium">
+					{$i18n.t('Allow Chat Valves')}
+				</div>
+
+				<Switch bind:state={permissions.chat.valves} />
+			</div>
+
+			<div class="  flex w-full justify-between my-2 pr-2">
+				<div class=" self-center text-xs font-medium">
+					{$i18n.t('Allow Chat System Prompt')}
+				</div>
+
+				<Switch bind:state={permissions.chat.system_prompt} />
+			</div>
+
+			<div class="  flex w-full justify-between my-2 pr-2">
+				<div class=" self-center text-xs font-medium">
+					{$i18n.t('Allow Chat Params')}
+				</div>
+
+				<Switch bind:state={permissions.chat.params} />
+			</div>
+		{/if}
+
 		<div class="  flex w-full justify-between my-2 pr-2">
 			<div class=" self-center text-xs font-medium">
 				{$i18n.t('Allow Chat Delete')}
@@ -274,6 +306,22 @@
 			</div>
 
 			<Switch bind:state={permissions.chat.edit} />
+		</div>
+
+		<div class="  flex w-full justify-between my-2 pr-2">
+			<div class=" self-center text-xs font-medium">
+				{$i18n.t('Allow Chat Share')}
+			</div>
+
+			<Switch bind:state={permissions.chat.share} />
+		</div>
+
+		<div class="  flex w-full justify-between my-2 pr-2">
+			<div class=" self-center text-xs font-medium">
+				{$i18n.t('Allow Chat Export')}
+			</div>
+
+			<Switch bind:state={permissions.chat.export} />
 		</div>
 
 		<div class="  flex w-full justify-between my-2 pr-2">
@@ -361,6 +409,14 @@
 			</div>
 
 			<Switch bind:state={permissions.features.code_interpreter} />
+		</div>
+
+		<div class="  flex w-full justify-between my-2 pr-2">
+			<div class=" self-center text-xs font-medium">
+				{$i18n.t('Notes')}
+			</div>
+
+			<Switch bind:state={permissions.features.notes} />
 		</div>
 	</div>
 </div>

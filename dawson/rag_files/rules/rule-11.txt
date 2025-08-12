@@ -1,0 +1,8 @@
+RULE 11: Subject: HVAC Text: Each HVAC system has one air handler and one rooftop compressor. The air handler is located above the ceiling through an
+ access panel in the washer/dryer or closet area. The rooftop compressor
+ is located on the roof on specially designed platforms. Most units have
+ one HVAC system conditioning their space, and larger units have two
+ systems (one thermostat = one unit). Thermostats are 7-day 24 hour
+ programmable, with the instruction guide provided in your warranty
+ package. An overflow alarm is required in the drip pan.
+ 
